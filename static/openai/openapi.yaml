@@ -1,0 +1,47 @@
+openapi: 3.0.1
+info:
+  title: Sahih AI
+  description: Allows the user to query a list of authentic islamic hadiths using natural language. Transform the question then query it against the API and return the answer to the user. Respond using format (English text, Arabic text, Source) in that order.
+  version: 'v1'
+servers:
+  - url: http://localhost:5003
+paths:
+  /query:
+    post:
+      operationId: queryHadith
+      summary: Query a list of islamic hadiths
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  template:
+                    type: string
+                    description: This is your template for answering questions. Remember to replace {english} {arabic} {source} in the template with the hadith's english, arabic, and source respectively. Apply the template's markdown rules if possible
+                  hadiths:
+                    type: array
+                    description: The list of islamic authentic hadiths
+                    items:
+                      type: object
+                      properties:
+                        content:
+                          type: string
+                          description: The hadith's english translation
+                        arabic:
+                          type: string
+                          description: The hadith's original arabic text
+                        source:
+                          type: string
+                          description: The source of the hadith

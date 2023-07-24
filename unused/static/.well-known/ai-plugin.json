@@ -1,0 +1,18 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "Sahih AI",
+    "name_for_model": "sahih_ai",
+    "description_for_human": "Query a list of islamic hadiths from our prophet Muhammed (PBUH)'s sunnah based on the 6 sahih hadith books",
+    "description_for_model": "Help the user answer islamic questions by querying an islamic knowledge base and return a list of hadiths related to the query based on the prophet's sunnah",
+    "auth": {
+      "type": "none"
+    },
+    "api": {
+      "type": "openapi",
+      "url": "http://localhost:5003/openapi.yaml"
+    },
+    "logo_url": "http://localhost:5003/logo.png",
+    "contact_email": "legal@example.com",
+    "legal_info_url": "http://example.com/legal"
+}
+  

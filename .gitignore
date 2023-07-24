@@ -1,0 +1,5 @@
+.env
+db
+.chroma
+__pycache__
+*.egg-info/
