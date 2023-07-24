@@ -36,7 +36,7 @@ def get_answer_template():
 {source}
 """
 
-@app.post("/query")
+@app.post("/api/query")
 async def add_todo():
     request = await quart.request.get_json(force=True)
     query: str = request['query']
