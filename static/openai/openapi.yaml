@@ -6,7 +6,7 @@ info:
 servers:
   - url: https://sahih-ai.muhammed-aldulaimi.com
 paths:
-  /query:
+  /api/query:
     post:
       operationId: queryHadith
       summary: Query a list of islamic hadiths
