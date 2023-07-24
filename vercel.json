@@ -1,0 +1,10 @@
+{
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/main" },
+    {"source": "/","destination": "/static/html/index.html"},
+    {"source": "/legal_info.html", "destination": "/static/html/legal_info.html"},
+    { "source": "/.well-known/ai-plugin.json", "destination": "/static/openai/.well-known/ai-plugin.json/"},
+    {"source": "/openapi.yaml", "destination": "/static/openai/openapi.yaml"},
+    {"source": "/logo.png", "destination": "/static/openai/logo.png"}
+  ]
+}
