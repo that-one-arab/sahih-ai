@@ -4,7 +4,7 @@ info:
   description: Allows the user to query a list of authentic islamic hadiths using natural language. Transform the question then query it against the API and return the answer to the user. Respond using format (English text, Arabic text, Source) in that order.
   version: 'v1'
 servers:
-  - url: https://sahih-ai.muhammed-aldulaimi.com
+  - url: http://localhost:8000
 paths:
   /api/query:
     post:
