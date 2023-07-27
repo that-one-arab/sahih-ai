@@ -15,3 +15,6 @@ For development:
 
 For production:
 - Run `export PRODUCTION=True && hypercorn -b 127.0.0.1:8000 main:app`
+
+## Notes
+- This project was developed using python version 3.10 and pip version 23.1
