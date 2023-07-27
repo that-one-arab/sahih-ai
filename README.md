@@ -1,3 +1,7 @@
+## About
+The Sahih AI server.
+Handles serving Chat GPT plugin requests
+
 ## Setup
 - **RECOMMENDED** Create a python virtual environment
 - Run `pip install -r requirements.txt`
