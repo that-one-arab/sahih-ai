@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 import os
+import logging
 import quart
 import quart_cors
 from quart import request, jsonify
@@ -10,6 +11,23 @@ from lib.vectordb.query import query_docs
 from langchain.docstore.document import Document
 
 app = quart_cors.cors(quart.Quart(__name__), allow_origin="https://chat.openai.com")
+
+# Create a file handler
+handler = logging.FileHandler('log.txt')
+
+# Set the log level to whatever you want
+handler.setLevel(logging.INFO)
+
+# Create a logging format
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+# Add the formatter to the handler
+handler.setFormatter(formatter)
+
+# Get the root logger and add the handler to it
+root_logger = logging.getLogger()
+root_logger.addHandler(handler)
+root_logger.setLevel(logging.INFO)
 
 IS_PRODUCTION = os.getenv('PRODUCTION') == "True"
 PRODUCTION_URL = os.getenv('PRODUCTION_URL')
@@ -46,7 +64,8 @@ async def hello():
     return jsonify(message="Hello, World!")
 
 @app.post("/api/query")
-async def query_docs():
+async def query():
+    logging.info('/api/query')
     request = await quart.request.get_json(force=True)
     query: str = request['query']
 
@@ -89,14 +108,5 @@ async def legal_info():
         html = f.read()
         return quart.Response(html)
 
-def dev():
-    app.run(debug=True, host="0.0.0.0", port=8000)
-
-def main():
-    app.run()
-
 if __name__ == "__main__":
-    if not IS_PRODUCTION:
-        dev()
-    else:
-        main()
+    app.run(debug=True, host="0.0.0.0", port=8000)
