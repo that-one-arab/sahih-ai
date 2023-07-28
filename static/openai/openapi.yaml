@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Sahih AI
-  description: Allows the user to query a list of authentic islamic hadiths using natural language. Transform the question then query it against the API and return the answer to the user. Respond using format (English text, Arabic text, Source) in that order.
+  description: Allows the user to query a list of authentic islamic hadiths using natural language. Transform the user's input then query the API.
   version: 'v1'
 servers:
   - url: http://localhost:8000
