@@ -54,7 +54,7 @@ def get_answer_template():
     return """
 **English**: 
 {english}
-**Arabic**: 
+**Original Arabic**: 
 {arabic}
 **Source**: 
 {source}
