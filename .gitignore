@@ -3,3 +3,4 @@ db
 .chroma
 __pycache__
 *.egg-info/
+log.txt
