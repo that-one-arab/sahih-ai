@@ -9,7 +9,7 @@ paths:
   /api/query:
     post:
       operationId: queryHadith
-      summary: Query a list of islamic hadiths. The hadiths are authentic
+      summary: Query a list of islamic hadiths. The hadiths are authentic.
       requestBody:
         required: true
         content:
@@ -29,19 +29,19 @@ paths:
                 properties:
                   hadiths:
                     type: array
-                    description: The list of islamic authentic hadiths
+                    description: The list of islamic authentic hadiths.
                     items:
                       type: object
                       properties:
                         content:
                           type: string
-                          description: The hadith's english translation
+                          description: The hadith's english translation.
                         arabic:
                           type: string
-                          description: The hadith's original arabic text
+                          description: The hadith's original arabic text.
                         source:
                           type: string
-                          description: The source of the hadith
+                          description: The source of the hadith.
                   template:
                     type: string
                     description: This is your template for responding. Remember to replace {english} {arabic} {source} in the template with the hadith's english, arabic, and source respectively.
