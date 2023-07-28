@@ -7,6 +7,7 @@ import logging
 import quart
 import quart_cors
 from quart import request, jsonify
+from quart.utils import run_sync
 from lib.vectordb.query import query_docs
 from langchain.docstore.document import Document
 
@@ -69,7 +70,10 @@ async def query():
     request = await quart.request.get_json(force=True)
     query: str = request['query']
 
-    response = query_docs(query)
+    def sync_processor():
+         return query_docs(query)
+    response = await run_sync(sync_processor)()
+
     template = get_answer_template()
     # Transform class objects to dictionaries
     answers = transform_documents_to_response(response)
