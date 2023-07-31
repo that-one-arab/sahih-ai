@@ -14,13 +14,13 @@ def create_csv_data(quran_data_file_path: str, hadiths_data_file_path: str, data
         list[Document]: Langchain document objects
     """
 
-    quran_df = pd.DataFrame()
-    quran = pd.read_csv(quran_data_file_path)
+    # quran_df = pd.DataFrame()
+    # quran = pd.read_csv(quran_data_file_path)
 
-    quran_df['id'] = "quran-" + quran['ayah_no_quran'].astype(str)
-    quran_df['value'] = quran['ayah_ar']
-    quran_df['translation'] = quran['ayah_en']
-    quran_df['source'] = quran['surah_name_roman'] + " - " + quran['ayah_no_surah'].astype(str)
+    # quran_df['id'] = "quran-" + quran['ayah_no_quran'].astype(str)
+    # quran_df['value'] = quran['ayah_ar']
+    # quran_df['translation'] = quran['ayah_en']
+    # quran_df['source'] = quran['surah_name_roman'] + " - " + quran['ayah_no_surah'].astype(str)
 
     hadith = pd.read_csv(hadiths_data_file_path)
     hadith_df = pd.DataFrame()
@@ -31,7 +31,8 @@ def create_csv_data(quran_data_file_path: str, hadiths_data_file_path: str, data
     hadith_df['source'] = hadith['source'] + " chapter: " + hadith['chapter'].astype(str) + " " + hadith['chapter_no'].astype(str) + " -" + hadith['hadith_no'].astype(str)
 
     # Append the extra data to the new data
-    combined = pd.concat([quran_df, hadith_df])
+    # combined = pd.concat([quran_df, hadith_df])
+    combined = pd.concat([hadith_df])
 
     # Write the combined data to a new CSV file
     combined.to_csv(data_file_path, index=False)

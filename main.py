@@ -93,7 +93,7 @@ async def plugin_manifest():
     with open("./static/openai/.well-known/ai-plugin.json") as f:
         text = f.read()
         if IS_PRODUCTION:
-            text = text.replace("http://localhost:8000", PRODUCTION_URL)
+            text = text.replace("http://localhost:5000", PRODUCTION_URL)
             text = text.replace("test@test.com", PRODUCTION_EMAIL)
         return quart.Response(text, mimetype="text/json")
 
@@ -102,7 +102,7 @@ async def openapi_spec():
     with open("./static/openai/openapi.yaml") as f:
         text = f.read()
         if IS_PRODUCTION:
-            text = text.replace("http://localhost:8000", PRODUCTION_URL)
+            text = text.replace("http://localhost:5000", PRODUCTION_URL)
         return quart.Response(text, mimetype="text/yaml")
 
 @app.get("/legal_info")
@@ -113,4 +113,4 @@ async def legal_info():
         return quart.Response(html)
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=8000)
+    app.run(debug=True, host="0.0.0.0", port=5000)

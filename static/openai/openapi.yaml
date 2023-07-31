@@ -4,7 +4,7 @@ info:
   description: Allows the user to query a list of authentic islamic hadiths. Can be used to retrieve a list of hadiths or to validate the authenticity of a hadith. If the hadith is included in the list then it is authentic. Respond using the template provided.
   version: 'v1'
 servers:
-  - url: http://localhost:8000
+  - url: http://localhost:5000
 paths:
   /api/query:
     post:

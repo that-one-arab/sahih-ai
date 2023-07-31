@@ -17,11 +17,7 @@ class PineconeDB:
             environment=os.environ['PINECONE_ENVIRONMENT']
         )
 
-        docsearch = Pinecone.from_documents(documents, embeddings, index_name=self.index_name)
-
-        # query = "What did the president say about Ketanji Brown Jackson"
-        # result = docsearch.similarity_search(query)
-        # print(result)
+        Pinecone.from_documents(documents, embeddings, index_name=self.index_name)
 
     def query(self, query: str) -> list[Document]:
         pinecone.init(      

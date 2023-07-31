@@ -1,6 +1,14 @@
-# from langchain.embeddings.openai import OpenAIEmbeddings
-from langchain.embeddings import HuggingFaceEmbeddings
+import os
 
-# embeddings = OpenAIEmbeddings()
+is_openai_embeddings = os.getenv('EMBEDDINGS') == 'openai'
 
-embeddings = HuggingFaceEmbeddings()
+embeddings = None
+
+if is_openai_embeddings:
+    print("Embeddings: Open AI")
+    from langchain.embeddings.openai import OpenAIEmbeddings
+    embeddings = OpenAIEmbeddings()
+else:
+    print("Embeddings: Sentence Transformer")
+    from langchain.embeddings import HuggingFaceEmbeddings
+    embeddings = HuggingFaceEmbeddings()

@@ -4,3 +4,7 @@ db
 __pycache__
 *.egg-info/
 log.txt
+.vscode
+build
+# Ignore the compiled data since it can be re-compiled
+data/data.csv
